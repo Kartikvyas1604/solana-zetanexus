@@ -164,7 +164,7 @@ const Features = () => {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button variant="hero" size="lg" asChild>
-              <a href="https://github.com/zetachain/protocol-contracts-solana" target="_blank" rel="noopener noreferrer">
+              <a href="https://github.com/zeta-chain/protocol-contracts-solana" target="_blank" rel="noopener noreferrer">
                 View Solana Gateway Implementation
               </a>
             </Button>

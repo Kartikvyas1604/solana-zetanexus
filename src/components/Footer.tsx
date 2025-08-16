@@ -11,7 +11,7 @@ const Footer = () => {
     ],
     developers: [
       { name: 'API Reference', href: '#' },
-      { name: 'GitHub Repository', href: 'https://github.com/zetachain' },
+      { name: 'GitHub Repository', href: 'https://github.com/zeta-chain' },
       { name: 'SDK Documentation', href: '#' },
       { name: 'Tutorials', href: '#' },
     ],
@@ -47,7 +47,7 @@ const Footer = () => {
             </p>
             <div className="flex space-x-3">
               <Button variant="outline" size="icon" asChild>
-                <a href="https://github.com/zetachain" target="_blank" rel="noopener noreferrer">
+                <a href="https://github.com/zeta-chain" target="_blank" rel="noopener noreferrer">
                   <Github className="w-4 h-4" />
                 </a>
               </Button>

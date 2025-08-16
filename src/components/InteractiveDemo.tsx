@@ -460,7 +460,7 @@ const InteractiveDemo = () => {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button variant="hero" size="lg" asChild>
-                <a href="https://github.com/zetachain/protocol-contracts-solana" target="_blank" rel="noopener noreferrer">
+                <a href="https://github.com/zeta-chain/protocol-contracts-solana" target="_blank" rel="noopener noreferrer">
                   <ExternalLink className="w-4 h-4 mr-2" />
                   View Solana Gateway
                 </a>

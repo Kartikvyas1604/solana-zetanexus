@@ -42,7 +42,7 @@ export PATH="$HOME/.local/share/solana/install/active_release/bin:$PATH"
 
 1. **Clone the repository:**
 ```bash
-git clone https://github.com/zetachain/universal-nft-solana
+git clone https://github.com/zeta-chain/universal-nft-solana
 cd universal-nft-solana
 ```
 
@@ -196,7 +196,7 @@ This implementation directly addresses the ZetaChain mission requirements:
 
 - **Discord**: [Join ZetaChain Community](https://discord.gg/zetachain)
 - **Documentation**: [ZetaChain Solana Docs](https://docs.zetachain.com/developers/chains/solana/)
-- **GitHub**: [ZetaChain Protocol Contracts](https://github.com/zetachain/protocol-contracts-solana)
+- **GitHub**: [ZetaChain Protocol Contracts](https://github.com/zeta-chain/protocol-contracts-solana)
 
 ## 📄 Technologies Used
 

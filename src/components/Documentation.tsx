@@ -29,7 +29,7 @@ curl -sSfL https://release.solana.com/v1.18.0/install | sh
 npm install -g @project-serum/anchor-cli
 
 # Clone the repository
-git clone https://github.com/zetachain/universal-nft-solana
+git clone https://github.com/zeta-chain/universal-nft-solana
 cd universal-nft-solana
 
 # Install dependencies
@@ -573,7 +573,7 @@ npm run test:cross-chain`}</code>
             </p>
             <div className="flex gap-4 justify-center">
               <Button variant="hero" size="lg" asChild>
-                <a href="https://github.com/zetachain/protocol-contracts-solana" target="_blank" rel="noopener noreferrer">
+                <a href="https://github.com/zeta-chain/protocol-contracts-solana" target="_blank" rel="noopener noreferrer">
                   <ExternalLink className="w-4 h-4 mr-2" />
                   View Source Code
                 </a>

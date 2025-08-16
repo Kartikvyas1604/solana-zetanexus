@@ -36,7 +36,7 @@ const Navigation = () => {
               </a>
             ))}
             <Button variant="outline" size="sm" asChild>
-              <a href="https://github.com/zetachain" target="_blank" rel="noopener noreferrer">
+              <a href="https://github.com/zeta-chain" target="_blank" rel="noopener noreferrer">
                 <Github className="w-4 h-4" />
                 GitHub
               </a>
@@ -74,7 +74,7 @@ const Navigation = () => {
               ))}
               <div className="px-3 py-2 space-y-2">
                 <Button variant="outline" size="sm" className="w-full" asChild>
-                  <a href="https://github.com/zetachain" target="_blank" rel="noopener noreferrer">
+                  <a href="https://github.com/zeta-chain" target="_blank" rel="noopener noreferrer">
                     <Github className="w-4 h-4" />
                     GitHub
                   </a>
