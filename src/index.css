@@ -4,12 +4,36 @@
 @tailwind components;
 @tailwind utilities;
 
-/* ZetaChain Universal NFT Design System */
+/* ZetaChain Universal NFT Design System - Clean & Professional */
+
+/* Reset and ensure clean rendering across all devices */
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html, body {
+  background-color: #ffffff !important;
+  color: #0f172a !important;
+}
+
+/* Override any device-specific color schemes */
+@media (prefers-color-scheme: light) {
+  :root {
+    color-scheme: light;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .light {
+    color-scheme: light;
+  }
+}
 
 @layer base {
   :root {
-    /* Core Colors - Modern tech palette */
-    --background: 248 250 252;
+    /* Core Colors - Clean neutral palette */
+    --background: 255 255 255;
     --foreground: 15 23 42;
 
     --card: 255 255 255;
@@ -18,42 +42,42 @@
     --popover: 255 255 255;
     --popover-foreground: 15 23 42;
 
-    /* Primary - ZetaChain inspired purple */
-    --primary: 262 83% 58%;
+    /* Primary - Professional purple */
+    --primary: 266 100% 60%;
     --primary-foreground: 255 255 255;
-    --primary-glow: 262 83% 68%;
+    --primary-glow: 266 100% 70%;
 
-    /* Secondary - Solana inspired green */
-    --secondary: 142 76% 36%;
+    /* Secondary - Clean teal */
+    --secondary: 199 89% 48%;
     --secondary-foreground: 255 255 255;
-    --secondary-glow: 142 76% 46%;
+    --secondary-glow: 199 89% 58%;
 
-    /* Accent - Cross-chain blue */
-    --accent: 217 91% 60%;
+    /* Accent - Vibrant blue */
+    --accent: 220 91% 60%;
     --accent-foreground: 255 255 255;
-    --accent-glow: 217 91% 70%;
+    --accent-glow: 220 91% 70%;
 
-    --muted: 241 10% 94%;
-    --muted-foreground: 100 7% 45%;
+    --muted: 248 250 252;
+    --muted-foreground: 100 116 139;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 255 255 255;
 
     --border: 226 20% 88%;
     --input: 226 20% 88%;
-    --ring: 262 83% 58%;
+    --ring: 266 100% 60%;
 
     --radius: 0.75rem;
 
-    /* Gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-glow)));
-    --gradient-secondary: linear-gradient(135deg, hsl(var(--secondary)), hsl(var(--secondary-glow)));
-    --gradient-accent: linear-gradient(135deg, hsl(var(--accent)), hsl(var(--accent-glow)));
-    --gradient-hero: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--accent)) 50%, hsl(var(--secondary)) 100%);
-    --gradient-card: linear-gradient(145deg, rgba(255,255,255,0.9), rgba(255,255,255,0.7));
+    /* Clean Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(266 100% 60%), hsl(266 100% 70%));
+    --gradient-secondary: linear-gradient(135deg, hsl(199 89% 48%), hsl(199 89% 58%));
+    --gradient-accent: linear-gradient(135deg, hsl(220 91% 60%), hsl(220 91% 70%));
+    --gradient-hero: linear-gradient(135deg, hsl(266 100% 60%) 0%, hsl(220 91% 60%) 50%, hsl(199 89% 48%) 100%);
+    --gradient-card: linear-gradient(145deg, rgba(255,255,255,0.95), rgba(255,255,255,0.85));
 
     /* Shadows */
-    --shadow-glow: 0 0 40px hsl(var(--primary) / 0.15);
+    --shadow-glow: 0 0 40px hsl(266 100% 60% / 0.15);
     --shadow-card: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
     --shadow-elevated: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
 
@@ -79,47 +103,47 @@
   }
 
   .dark {
-    /* Dark mode colors */
-    --background: 12 6% 8%;
-    --foreground: 240 10% 95%;
+    /* Dark mode colors - Clean and professional */
+    --background: 10 10 11;
+    --foreground: 250 250 250;
 
-    --card: 12 6% 10%;
-    --card-foreground: 240 10% 95%;
+    --card: 24 24 27;
+    --card-foreground: 250 250 250;
 
-    --popover: 12 6% 10%;
-    --popover-foreground: 240 10% 95%;
+    --popover: 24 24 27;
+    --popover-foreground: 250 250 250;
 
-    --primary: 262 83% 68%;
-    --primary-foreground: 12 6% 8%;
-    --primary-glow: 262 83% 78%;
+    --primary: 266 100% 70%;
+    --primary-foreground: 10 10 11;
+    --primary-glow: 266 100% 80%;
 
-    --secondary: 142 76% 46%;
-    --secondary-foreground: 12 6% 8%;
-    --secondary-glow: 142 76% 56%;
+    --secondary: 199 89% 58%;
+    --secondary-foreground: 10 10 11;
+    --secondary-glow: 199 89% 68%;
 
-    --accent: 217 91% 70%;
-    --accent-foreground: 12 6% 8%;
-    --accent-glow: 217 91% 80%;
+    --accent: 220 91% 70%;
+    --accent-foreground: 10 10 11;
+    --accent-glow: 220 91% 80%;
 
-    --muted: 12 6% 15%;
-    --muted-foreground: 240 5% 64%;
+    --muted: 39 39 42;
+    --muted-foreground: 161 161 170;
 
     --destructive: 0 84% 60%;
-    --destructive-foreground: 240 10% 95%;
+    --destructive-foreground: 250 250 250;
 
-    --border: 12 6% 20%;
-    --input: 12 6% 20%;
-    --ring: 262 83% 68%;
+    --border: 39 39 42;
+    --input: 39 39 42;
+    --ring: 266 100% 70%;
 
-    /* Dark mode gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-glow)));
-    --gradient-secondary: linear-gradient(135deg, hsl(var(--secondary)), hsl(var(--secondary-glow)));
-    --gradient-accent: linear-gradient(135deg, hsl(var(--accent)), hsl(var(--accent-glow)));
-    --gradient-hero: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--accent)) 50%, hsl(var(--secondary)) 100%);
-    --gradient-card: linear-gradient(145deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02));
+    /* Dark mode gradients - Clean */
+    --gradient-primary: linear-gradient(135deg, hsl(266 100% 70%), hsl(266 100% 80%));
+    --gradient-secondary: linear-gradient(135deg, hsl(199 89% 58%), hsl(199 89% 68%));
+    --gradient-accent: linear-gradient(135deg, hsl(220 91% 70%), hsl(220 91% 80%));
+    --gradient-hero: linear-gradient(135deg, hsl(266 100% 70%) 0%, hsl(220 91% 70%) 50%, hsl(199 89% 58%) 100%);
+    --gradient-card: linear-gradient(145deg, rgba(39,39,42,0.95), rgba(39,39,42,0.85));
 
     /* Dark mode shadows */
-    --shadow-glow: 0 0 40px hsl(var(--primary) / 0.3);
+    --shadow-glow: 0 0 40px hsl(266 100% 70% / 0.3);
     --shadow-card: 0 4px 6px -1px rgba(0, 0, 0, 0.4), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
     --shadow-elevated: 0 20px 25px -5px rgba(0, 0, 0, 0.4), 0 10px 10px -5px rgba(0, 0, 0, 0.2);
   }
@@ -131,8 +155,13 @@
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-white text-foreground;
     font-family: 'Inter', sans-serif;
+    background-color: #ffffff !important;
+  }
+
+  html {
+    background-color: #ffffff !important;
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -142,6 +171,19 @@
 
   code, pre {
     font-family: 'JetBrains Mono', monospace;
+  }
+
+  /* Force clean backgrounds on common components */
+  .bg-muted\/30 {
+    background-color: rgba(248, 250, 252, 0.8) !important;
+  }
+
+  .bg-muted\/50 {
+    background-color: rgba(248, 250, 252, 0.9) !important;
+  }
+
+  .bg-muted {
+    background-color: rgb(248, 250, 252) !important;
   }
 }
 
@@ -161,7 +203,7 @@
   }
 
   .gradient-border > * {
-    background: hsl(var(--card));
+    background: #ffffff;
     border-radius: calc(var(--radius) - 2px);
     position: relative;
     z-index: 1;
@@ -173,6 +215,15 @@
 
   .floating {
     animation: float 3s ease-in-out infinite;
+  }
+
+  /* Clean section backgrounds */
+  .section-clean {
+    background-color: #ffffff !important;
+  }
+
+  .section-muted {
+    background-color: #f8fafc !important;
   }
 
   @keyframes float {

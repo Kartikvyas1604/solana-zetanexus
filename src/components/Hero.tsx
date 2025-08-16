@@ -5,15 +5,15 @@ import heroImage from '@/assets/hero-bg.jpg';
 
 const Hero = () => {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background Image with Overlay */}
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-white">
+      {/* Clean Background with Subtle Overlay */}
       <div className="absolute inset-0 z-0">
         <img
           src={heroImage}
           alt="Cross-chain NFT background"
-          className="w-full h-full object-cover"
+          className="w-full h-full object-cover opacity-5"
         />
-        <div className="absolute inset-0 bg-gradient-to-br from-background/95 via-background/90 to-background/95"></div>
+        <div className="absolute inset-0 bg-white/98"></div>
       </div>
 
       {/* Animated Background Elements */}
