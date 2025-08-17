@@ -5,16 +5,9 @@ import heroImage from '@/assets/hero-bg.jpg';
 
 const Hero = () => {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-white">
-      {/* Clean Background with Subtle Overlay */}
-      <div className="absolute inset-0 z-0">
-        <img
-          src={heroImage}
-          alt="Cross-chain NFT background"
-          className="w-full h-full object-cover opacity-5"
-        />
-        <div className="absolute inset-0 bg-white/98"></div>
-      </div>
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden" style={{ background: '#fff' }}>
+      {/* Remove all overlays and force white background */}
+      <div className="absolute inset-0 z-0" style={{ background: '#fff' }}></div>
 
       {/* Animated Background Elements */}
       <div className="absolute inset-0 z-10">
@@ -27,7 +20,7 @@ const Hero = () => {
       <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <div className="slide-in">
           {/* Badge */}
-          <div className="inline-flex items-center px-4 py-2 rounded-full bg-card/50 backdrop-blur-sm border border-border/50 text-sm font-medium text-muted-foreground mb-8">
+          <div style={{background: 'rgba(139, 92, 246, 0.1)'}} className="inline-flex items-center px-4 py-2 rounded-full border border-purple-200 text-sm font-medium text-purple-700 mb-8">
             <Zap className="w-4 h-4 mr-2 text-primary" />
             ZetaChain × Solana Integration
           </div>
@@ -47,27 +40,42 @@ const Hero = () => {
 
           {/* Feature Pills */}
           <div className="flex flex-wrap justify-center gap-4 mb-12">
-            <div className="flex items-center px-4 py-2 bg-card/30 backdrop-blur-sm rounded-full border border-border/30">
-              <Shield className="w-4 h-4 mr-2 text-secondary" />
-              <span className="text-sm font-medium">TSS Security</span>
-            </div>
-            <div className="flex items-center px-4 py-2 bg-card/30 backdrop-blur-sm rounded-full border border-border/30">
-              <Network className="w-4 h-4 mr-2 text-accent" />
-              <span className="text-sm font-medium">Cross-Chain Native</span>
-            </div>
-            <div className="flex items-center px-4 py-2 bg-card/30 backdrop-blur-sm rounded-full border border-border/30">
-              <Zap className="w-4 h-4 mr-2 text-primary" />
-              <span className="text-sm font-medium">Solana Optimized</span>
-            </div>
+              <div className="flex items-center px-4 py-2 rounded-full border" style={{ backgroundColor: '#f8f9fa', borderColor: '#8b5cf6' }}>
+                <Shield className="w-4 h-4 mr-2" style={{ color: '#8b5cf6' }} />
+                <span className="text-sm font-medium" style={{ color: '#8b5cf6' }}>TSS Security</span>
+              </div>
+              <div className="flex items-center px-4 py-2 rounded-full border" style={{ backgroundColor: '#f8f9fa', borderColor: '#3b82f6' }}>
+                <Network className="w-4 h-4 mr-2" style={{ color: '#3b82f6' }} />
+                <span className="text-sm font-medium" style={{ color: '#3b82f6' }}>Cross-Chain Native</span>
+              </div>
+              <div className="flex items-center px-4 py-2 rounded-full border" style={{ backgroundColor: '#f8f9fa', borderColor: '#06b6d4' }}>
+                <Zap className="w-4 h-4 mr-2" style={{ color: '#06b6d4' }} />
+                <span className="text-sm font-medium" style={{ color: '#06b6d4' }}>Solana Optimized</span>
+              </div>
           </div>
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
-            <WalletMultiButton className="!bg-primary hover:!bg-primary/90 !rounded-lg !px-8 !py-4 !text-lg !font-medium" />
+            <WalletMultiButton 
+              style={{ 
+                background: 'linear-gradient(135deg, #8b5cf6, #3b82f6)', 
+                borderRadius: '0.5rem', 
+                padding: '1rem 2rem', 
+                fontSize: '1.125rem', 
+                fontWeight: '600',
+                border: 'none'
+              }} 
+            />
             <Button 
               variant="outline" 
               size="lg" 
-              className="px-8 py-4 text-lg"
+              style={{ 
+                padding: '1rem 2rem', 
+                fontSize: '1.125rem', 
+                background: 'white', 
+                borderColor: '#8b5cf6', 
+                color: '#8b5cf6' 
+              }}
               onClick={() => {
                 const docsSection = document.getElementById('docs');
                 docsSection?.scrollIntoView({ behavior: 'smooth' });
@@ -81,7 +89,15 @@ const Hero = () => {
             <Button 
               variant="hero" 
               size="lg" 
-              className="px-8 py-4 text-lg"
+              style={{ 
+                background: 'linear-gradient(135deg, #8b5cf6, #3b82f6, #06b6d4)', 
+                padding: '1rem 2rem', 
+                fontSize: '1.125rem',
+                color: 'white',
+                border: 'none',
+                fontWeight: '600',
+                boxShadow: '0 4px 12px rgba(139, 92, 246, 0.3)'
+              }}
               onClick={() => {
                 const nftStudio = document.querySelector('[data-testid="nft-studio"]') || document.getElementById('nft-studio');
                 if (nftStudio) {

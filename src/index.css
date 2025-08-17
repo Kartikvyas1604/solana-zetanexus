@@ -1,248 +1,492 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* ZetaChain Universal NFT Design System - Clean & Professional */
-
-/* Reset and ensure clean rendering across all devices */
-* {
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-html, body {
-  background-color: #ffffff !important;
-  color: #0f172a !important;
-}
-
-/* Override any device-specific color schemes */
-@media (prefers-color-scheme: light) {
-  :root {
-    color-scheme: light;
-  }
-}
-
-@media (prefers-color-scheme: dark) {
-  .light {
-    color-scheme: light;
-  }
-}
+/* ===== SIMPLE FIX - KEEP TAILWIND, JUST OVERRIDE YELLOW ===== */
 
 @layer base {
   :root {
-    /* Core Colors - Clean neutral palette */
-    --background: 255 255 255;
-    --foreground: 15 23 42;
-
-    --card: 255 255 255;
-    --card-foreground: 15 23 42;
-
-    --popover: 255 255 255;
-    --popover-foreground: 15 23 42;
-
-    /* Primary - Professional purple */
-    --primary: 266 100% 60%;
-    --primary-foreground: 255 255 255;
-    --primary-glow: 266 100% 70%;
-
-    /* Secondary - Clean teal */
-    --secondary: 199 89% 48%;
-    --secondary-foreground: 255 255 255;
-    --secondary-glow: 199 89% 58%;
-
-    /* Accent - Vibrant blue */
-    --accent: 220 91% 60%;
-    --accent-foreground: 255 255 255;
-    --accent-glow: 220 91% 70%;
-
-    --muted: 248 250 252;
-    --muted-foreground: 100 116 139;
-
-    --destructive: 0 84% 60%;
-    --destructive-foreground: 255 255 255;
-
-    --border: 226 20% 88%;
-    --input: 226 20% 88%;
-    --ring: 266 100% 60%;
-
-    --radius: 0.75rem;
-
-    /* Clean Gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(266 100% 60%), hsl(266 100% 70%));
-    --gradient-secondary: linear-gradient(135deg, hsl(199 89% 48%), hsl(199 89% 58%));
-    --gradient-accent: linear-gradient(135deg, hsl(220 91% 60%), hsl(220 91% 70%));
-    --gradient-hero: linear-gradient(135deg, hsl(266 100% 60%) 0%, hsl(220 91% 60%) 50%, hsl(199 89% 48%) 100%);
-    --gradient-card: linear-gradient(145deg, rgba(255,255,255,0.95), rgba(255,255,255,0.85));
-
-    /* Shadows */
-    --shadow-glow: 0 0 40px hsl(266 100% 60% / 0.15);
-    --shadow-card: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-    --shadow-elevated: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-
-    /* Animations */
-    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-
-    --sidebar-background: 0 0% 98%;
-
-    --sidebar-foreground: 240 5.3% 26.1%;
-
-    --sidebar-primary: 240 5.9% 10%;
-
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 262.1 83.3% 57.8%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 222.2 84% 4.9%;
+    --muted: 210 40% 96%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 210 40% 96%;
+    --accent-foreground: 222.2 84% 4.9%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 262.1 83.3% 57.8%;
+    --radius: 0.5rem;
   }
 
-  .dark {
-    /* Dark mode colors - Clean and professional */
-    --background: 10 10 11;
-    --foreground: 250 250 250;
-
-    --card: 24 24 27;
-    --card-foreground: 250 250 250;
-
-    --popover: 24 24 27;
-    --popover-foreground: 250 250 250;
-
-    --primary: 266 100% 70%;
-    --primary-foreground: 10 10 11;
-    --primary-glow: 266 100% 80%;
-
-    --secondary: 199 89% 58%;
-    --secondary-foreground: 10 10 11;
-    --secondary-glow: 199 89% 68%;
-
-    --accent: 220 91% 70%;
-    --accent-foreground: 10 10 11;
-    --accent-glow: 220 91% 80%;
-
-    --muted: 39 39 42;
-    --muted-foreground: 161 161 170;
-
-    --destructive: 0 84% 60%;
-    --destructive-foreground: 250 250 250;
-
-    --border: 39 39 42;
-    --input: 39 39 42;
-    --ring: 266 100% 70%;
-
-    /* Dark mode gradients - Clean */
-    --gradient-primary: linear-gradient(135deg, hsl(266 100% 70%), hsl(266 100% 80%));
-    --gradient-secondary: linear-gradient(135deg, hsl(199 89% 58%), hsl(199 89% 68%));
-    --gradient-accent: linear-gradient(135deg, hsl(220 91% 70%), hsl(220 91% 80%));
-    --gradient-hero: linear-gradient(135deg, hsl(266 100% 70%) 0%, hsl(220 91% 70%) 50%, hsl(199 89% 58%) 100%);
-    --gradient-card: linear-gradient(145deg, rgba(39,39,42,0.95), rgba(39,39,42,0.85));
-
-    /* Dark mode shadows */
-    --shadow-glow: 0 0 40px hsl(266 100% 70% / 0.3);
-    --shadow-card: 0 4px 6px -1px rgba(0, 0, 0, 0.4), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
-    --shadow-elevated: 0 20px 25px -5px rgba(0, 0, 0, 0.4), 0 10px 10px -5px rgba(0, 0, 0, 0.2);
-  }
-}
-
-@layer base {
   * {
-    @apply border-border;
+    border-color: hsl(var(--border));
   }
 
   body {
-    @apply bg-white text-foreground;
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
     font-family: 'Inter', sans-serif;
-    background-color: #ffffff !important;
-  }
-
-  html {
-    background-color: #ffffff !important;
-  }
-
-  h1, h2, h3, h4, h5, h6 {
-    font-family: 'Inter', sans-serif;
-    font-weight: 600;
-  }
-
-  code, pre {
-    font-family: 'JetBrains Mono', monospace;
-  }
-
-  /* Force clean backgrounds on common components */
-  .bg-muted\/30 {
-    background-color: rgba(248, 250, 252, 0.8) !important;
-  }
-
-  .bg-muted\/50 {
-    background-color: rgba(248, 250, 252, 0.9) !important;
-  }
-
-  .bg-muted {
-    background-color: rgb(248, 250, 252) !important;
   }
 }
 
-@layer components {
-  .gradient-text {
-    background: var(--gradient-hero);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
+/* ===== HERO BUTTON OVERRIDE - HIGHEST PRIORITY ===== */
 
-  .gradient-border {
-    position: relative;
-    background: var(--gradient-hero);
-    border-radius: var(--radius);
-    padding: 2px;
-  }
-
-  .gradient-border > * {
-    background: #ffffff;
-    border-radius: calc(var(--radius) - 2px);
-    position: relative;
-    z-index: 1;
-  }
-
-  .glow-effect {
-    box-shadow: var(--shadow-glow);
-  }
-
-  .floating {
-    animation: float 3s ease-in-out infinite;
-  }
-
-  /* Clean section backgrounds */
-  .section-clean {
-    background-color: #ffffff !important;
-  }
-
-  .section-muted {
-    background-color: #f8fafc !important;
-  }
-
-  @keyframes float {
-    0%, 100% { transform: translateY(0px); }
-    50% { transform: translateY(-10px); }
-  }
-
-  .slide-in {
-    animation: slideIn 0.6s ease-out forwards;
-  }
-
-  @keyframes slideIn {
-    from {
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
+/* Hero section Launch NFT Studio button - MAXIMUM SPECIFICITY */
+section button[variant="hero"],
+div section button[variant="hero"],
+.hero-section button[variant="hero"],
+button[variant="hero"][size="lg"],
+button[style*="linear-gradient(135deg, #8b5cf6, #3b82f6, #06b6d4)"],
+button:contains("Launch NFT Studio"),
+button[aria-label*="Launch"],
+.hero-cta-button {
+  background: linear-gradient(135deg, #8b5cf6, #3b82f6, #06b6d4) !important;
+  color: white !important;
+  border: none !important;
+  padding: 1rem 2rem !important;
+  font-size: 1.125rem !important;
+  font-weight: 600 !important;
+  border-radius: 0.5rem !important;
+  box-shadow: 0 4px 12px rgba(139, 92, 246, 0.3) !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 0.5rem !important;
+  transition: all 0.3s ease !important;
+  transform: translateY(0) !important;
+  min-width: 200px !important;
+  height: auto !important;
+  white-space: nowrap !important;
+  overflow: visible !important;
+  text-overflow: initial !important;
 }
+
+/* Target the button by its text content more reliably */
+button:nth-child(1):last-child,
+.text-center button[variant="hero"],
+div.text-center > button {
+  background: linear-gradient(135deg, #8b5cf6, #3b82f6, #06b6d4) !important;
+  color: white !important;
+  border: none !important;
+  padding: 1rem 2rem !important;
+  font-size: 1.125rem !important;
+  font-weight: 600 !important;
+  border-radius: 0.5rem !important;
+  box-shadow: 0 4px 12px rgba(139, 92, 246, 0.3) !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 0.5rem !important;
+  transition: all 0.3s ease !important;
+  min-width: 200px !important;
+  height: auto !important;
+  white-space: nowrap !important;
+}
+
+section button[variant="hero"]:hover,
+div section button[variant="hero"]:hover,
+.hero-section button[variant="hero"]:hover,
+button[variant="hero"][size="lg"]:hover,
+button[style*="linear-gradient(135deg, #8b5cf6, #3b82f6, #06b6d4)"]:hover,
+button:contains("Launch NFT Studio"):hover,
+button[aria-label*="Launch"]:hover,
+.hero-cta-button:hover,
+button:nth-child(1):last-child:hover,
+.text-center button[variant="hero"]:hover,
+div.text-center > button:hover {
+  background: linear-gradient(135deg, #7c3aed, #2563eb, #0891b2) !important;
+  color: white !important;
+  transform: translateY(-3px) !important;
+  box-shadow: 0 8px 20px rgba(139, 92, 246, 0.5) !important;
+  border: none !important;
+  scale: 1.02 !important;
+}
+
+section button[variant="hero"]:active,
+div section button[variant="hero"]:active,
+.hero-section button[variant="hero"]:active,
+button[variant="hero"][size="lg"]:active,
+button[style*="linear-gradient(135deg, #8b5cf6, #3b82f6, #06b6d4)"]:active {
+  transform: translateY(-1px) !important;
+  box-shadow: 0 6px 16px rgba(139, 92, 246, 0.4) !important;
+  scale: 1.01 !important;
+}
+
+/* ===== TARGETED BUTTON FIXES ===== */
+
+/* Fix Connect EVM button and similar buttons - EXCLUDE HERO BUTTONS */
+button:not([variant="hero"]):not([style*="linear-gradient"]),
+.btn:not([variant="hero"]):not([style*="linear-gradient"]),
+[role="button"]:not([variant="hero"]):not([style*="linear-gradient"]) {
+  background: white !important;
+  color: #1e293b !important;
+  border: 1px solid #e5e7eb !important;
+  border-radius: 0.5rem !important;
+  padding: 0.5rem 1rem !important;
+  font-size: 0.875rem !important;
+  font-weight: 500 !important;
+  transition: all 0.2s ease !important;
+  cursor: pointer !important;
+}
+
+button:not([variant="hero"]):not([style*="linear-gradient"]):hover,
+.btn:not([variant="hero"]):not([style*="linear-gradient"]):hover,
+[role="button"]:not([variant="hero"]):not([style*="linear-gradient"]):hover {
+  background: #f3f4f6 !important;
+  border-color: #8b5cf6 !important;
+  color: #8b5cf6 !important;
+  transform: translateY(-1px) !important;
+}
+
+/* Specific button variants that should keep their styling */
+button[class*="gradient"],
+.btn-primary,
+button[style*="gradient"],
+button[style*="linear-gradient"],
+button[variant="hero"] {
+  background: linear-gradient(135deg, #8b5cf6, #3b82f6) !important;
+  color: white !important;
+  border: none !important;
+  padding: 1rem 2rem !important;
+  font-size: 1.125rem !important;
+  font-weight: 600 !important;
+  box-shadow: 0 4px 12px rgba(139, 92, 246, 0.3) !important;
+}
+
+button[class*="gradient"]:hover,
+.btn-primary:hover,
+button[style*="gradient"]:hover,
+button[style*="linear-gradient"]:hover,
+button[variant="hero"]:hover {
+  background: linear-gradient(135deg, #7c3aed, #2563eb) !important;
+  color: white !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 6px 16px rgba(139, 92, 246, 0.4) !important;
+}
+
+/* Hero section Launch NFT Studio button specifically */
+button:contains("Launch NFT Studio"),
+button[aria-label*="Launch"],
+.hero-cta-button,
+button[style*="linear-gradient(135deg, #8b5cf6, #3b82f6, #06b6d4)"] {
+  background: linear-gradient(135deg, #8b5cf6, #3b82f6, #06b6d4) !important;
+  color: white !important;
+  border: none !important;
+  padding: 1rem 2rem !important;
+  font-size: 1.125rem !important;
+  font-weight: 600 !important;
+  border-radius: 0.5rem !important;
+  box-shadow: 0 4px 12px rgba(139, 92, 246, 0.3) !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 0.5rem !important;
+}
+
+button:contains("Launch NFT Studio"):hover,
+button[aria-label*="Launch"]:hover,
+.hero-cta-button:hover,
+button[style*="linear-gradient(135deg, #8b5cf6, #3b82f6, #06b6d4)"]:hover {
+  background: linear-gradient(135deg, #7c3aed, #2563eb, #0891b2) !important;
+  color: white !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 6px 16px rgba(139, 92, 246, 0.4) !important;
+}
+
+/* Also override by position - buttons in hero section */
+.hero-section button,
+section:first-child button[variant="hero"],
+div[class*="hero"] button {
+  background: linear-gradient(135deg, #8b5cf6, #3b82f6, #06b6d4) !important;
+  color: white !important;
+  border: none !important;
+  padding: 1rem 2rem !important;
+  font-size: 1.125rem !important;
+  font-weight: 600 !important;
+  border-radius: 0.5rem !important;
+  box-shadow: 0 4px 12px rgba(139, 92, 246, 0.3) !important;
+}
+
+/* Connect EVM and wallet buttons specifically */
+button[class*="connect"],
+button[class*="wallet"],
+.wallet-adapter-button,
+button:contains("Connect"),
+button:contains("EVM") {
+  background: white !important;
+  color: #1e293b !important;
+  border: 2px solid #8b5cf6 !important;
+  border-radius: 0.5rem !important;
+  padding: 0.75rem 1.5rem !important;
+  font-weight: 600 !important;
+}
+
+button[class*="connect"]:hover,
+button[class*="wallet"]:hover,
+.wallet-adapter-button:hover,
+button:contains("Connect"):hover,
+button:contains("EVM"):hover {
+  background: #8b5cf6 !important;
+  color: white !important;
+  border-color: #8b5cf6 !important;
+}
+
+/* Status indicator buttons */
+.status-connected,
+button[class*="Connected"] {
+  background: #10b981 !important;
+  color: white !important;
+  border-color: #10b981 !important;
+}
+
+/* Outline buttons */
+button[variant="outline"],
+.btn-outline,
+button[class*="outline"] {
+  background: white !important;
+  color: #8b5cf6 !important;
+  border: 2px solid #8b5cf6 !important;
+}
+
+button[variant="outline"]:hover,
+.btn-outline:hover,
+button[class*="outline"]:hover {
+  background: #8b5cf6 !important;
+  color: white !important;
+}
+
+/* Tab buttons */
+button[role="tab"],
+.tab-trigger {
+  background: white !important;
+  color: #64748b !important;
+  border: 1px solid #e5e7eb !important;
+  border-radius: 0.375rem !important;
+  padding: 0.5rem 1rem !important;
+}
+
+button[role="tab"][data-state="active"],
+button[role="tab"].active,
+.tab-trigger.active {
+  background: #8b5cf6 !important;
+  color: white !important;
+  border-color: #8b5cf6 !important;
+}
+
+/* Learn More buttons */
+button:contains("Learn More"),
+.learn-more-btn {
+  background: transparent !important;
+  color: #8b5cf6 !important;
+  border: 1px solid #8b5cf6 !important;
+  border-radius: 0.375rem !important;
+  padding: 0.5rem 1rem !important;
+}
+
+button:contains("Learn More"):hover,
+.learn-more-btn:hover {
+  background: #8b5cf6 !important;
+  color: white !important;
+}
+
+/* Input fields */
+input,
+textarea {
+  background: white !important;
+  color: #1e293b !important;
+  border: 1px solid #d1d5db !important;
+  border-radius: 0.375rem !important;
+  padding: 0.5rem 0.75rem !important;
+  font-size: 0.875rem !important;
+}
+
+input:focus,
+textarea:focus {
+  outline: none !important;
+  border-color: #8b5cf6 !important;
+  box-shadow: 0 0 0 2px rgba(139, 92, 246, 0.2) !important;
+}
+
+/* Cards */
+.card,
+div[class*="card"] {
+  background: white !important;
+  border: 1px solid #e5e7eb !important;
+  border-radius: 0.5rem !important;
+  padding: 1.5rem !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1) !important;
+}
+
+.card:hover,
+div[class*="card"]:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) !important;
+  transform: translateY(-2px) !important;
+}
+
+/* Kill all yellow/amber Tailwind classes */
+.bg-yellow-50,
+.bg-yellow-100,
+.bg-yellow-200,
+.bg-yellow-300,
+.bg-yellow-400,
+.bg-yellow-500,
+.bg-yellow-600,
+.bg-yellow-700,
+.bg-yellow-800,
+.bg-yellow-900,
+.bg-amber-50,
+.bg-amber-100,
+.bg-amber-200,
+.bg-amber-300,
+.bg-amber-400,
+.bg-amber-500,
+.bg-amber-600,
+.bg-amber-700,
+.bg-amber-800,
+.bg-amber-900 {
+  background-color: white !important;
+}
+
+/* Kill yellow text colors */
+.text-yellow-50,
+.text-yellow-100,
+.text-yellow-200,
+.text-yellow-300,
+.text-yellow-400,
+.text-yellow-500,
+.text-yellow-600,
+.text-yellow-700,
+.text-yellow-800,
+.text-yellow-900,
+.text-amber-50,
+.text-amber-100,
+.text-amber-200,
+.text-amber-300,
+.text-amber-400,
+.text-amber-500,
+.text-amber-600,
+.text-amber-700,
+.text-amber-800,
+.text-amber-900 {
+  color: hsl(var(--primary)) !important;
+}
+
+/* Kill yellow borders */
+.border-yellow-50,
+.border-yellow-100,
+.border-yellow-200,
+.border-yellow-300,
+.border-yellow-400,
+.border-yellow-500,
+.border-yellow-600,
+.border-yellow-700,
+.border-yellow-800,
+.border-yellow-900,
+.border-amber-50,
+.border-amber-100,
+.border-amber-200,
+.border-amber-300,
+.border-amber-400,
+.border-amber-500,
+.border-amber-600,
+.border-amber-700,
+.border-amber-800,
+.border-amber-900 {
+  border-color: hsl(var(--border)) !important;
+}
+
+/* Force problematic backgrounds to white */
+.bg-card\/50,
+[class*="bg-card/"],
+.backdrop-blur-sm,
+.backdrop-blur {
+  background-color: white !important;
+  backdrop-filter: none !important;
+}
+
+/* Fix button states that might be yellow */
+.hover\:bg-yellow-400:hover,
+.hover\:bg-amber-400:hover,
+.focus\:bg-yellow-400:focus,
+.focus\:bg-amber-400:focus {
+  background-color: hsl(var(--primary)) !important;
+  color: white !important;
+}
+
+/* Ensure clean gradients */
+.bg-gradient-to-r,
+.bg-gradient-to-l,
+.bg-gradient-to-t,
+.bg-gradient-to-b,
+.bg-gradient-to-tr,
+.bg-gradient-to-tl,
+.bg-gradient-to-br,
+.bg-gradient-to-bl {
+  background: white !important;
+  background-image: none !important;
+}
+
+/* Allow specific gradients for brand elements */
+.bg-gradient-to-br.from-primary,
+.bg-gradient-to-r.from-purple-600,
+.bg-gradient-to-r.from-blue-500,
+button .bg-gradient-to-r,
+[class*="w-8"] .bg-gradient-to-br,
+[class*="w-10"] .bg-gradient-to-br,
+[class*="w-12"] .bg-gradient-to-br,
+[class*="w-16"] .bg-gradient-to-br {
+  background: linear-gradient(135deg, hsl(var(--primary)), #3b82f6) !important;
+  background-image: linear-gradient(135deg, hsl(var(--primary)), #3b82f6) !important;
+}
+
+/* Allow specific gradients for components that need them */
+.gradient-text {
+  background: linear-gradient(135deg, hsl(var(--primary)), #3b82f6) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+}
+
+/* Override any inline yellow styles */
+[style*="background: yellow"],
+[style*="background-color: yellow"],
+[style*="background: #ffff"],
+[style*="background: #ff0"],
+[style*="background-color: #ffff"],
+[style*="background-color: #ff0"] {
+  background-color: white !important;
+  background: white !important;
+}
+
+/* Ensure sections have white backgrounds */
+section {
+  background-color: white !important;
+}
+
+/* Clean up any remaining problem areas */
+.bg-opacity-50 {
+  background-color: white !important;
+  opacity: 1 !important;
+}
+
+/* Fix any remaining card backgrounds */
+.bg-card {
+  background-color: white !important;
+}
+
+.bg-background {
+  background-color: white !important;
+}
+

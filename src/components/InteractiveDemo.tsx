@@ -178,7 +178,7 @@ const InteractiveDemo = () => {
       case 'confirmed':
         return <CheckCircle className="w-4 h-4 text-secondary" />;
       case 'pending':
-        return <Clock className="w-4 h-4 text-yellow-500" />;
+        return <Clock className="w-4 h-4 text-primary animate-pulse" />;
       case 'failed':
         return <AlertCircle className="w-4 h-4 text-destructive" />;
     }
@@ -187,29 +187,29 @@ const InteractiveDemo = () => {
   const getStatusColor = (status: NFTTransfer['status']) => {
     switch (status) {
       case 'confirmed':
-        return 'bg-secondary/10 text-secondary border-secondary/20';
+        return 'status-success';
       case 'pending':
-        return 'bg-yellow-500/10 text-yellow-600 border-yellow-500/20';
+        return 'status-info';
       case 'failed':
         return 'bg-destructive/10 text-destructive border-destructive/20';
     }
   };
 
   return (
-    <section id="examples" className="py-24 bg-muted/30">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="examples" className="section-muted">
+      <div className="container">
         {/* Header */}
         <div className="text-center mb-16">
-          <div className="inline-flex items-center px-4 py-2 rounded-full bg-card/50 backdrop-blur-sm border border-border/50 text-sm font-medium text-muted-foreground mb-4">
-            <Wallet className="w-4 h-4 mr-2 text-primary" />
+          <div className="status-info mb-4">
+            <Wallet className="w-4 h-4 mr-2" />
             Interactive Demo
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">
+          <h2 className="hero-responsive font-bold mb-6">
             <span className="gradient-text">Test Cross-Chain</span>
             <br />
             <span className="text-foreground">NFT Operations</span>
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-responsive text-muted-foreground max-w-3xl mx-auto">
             Experience the power of universal NFTs with our interactive demo. 
             Mint, transfer, and track NFTs across ZetaChain and Solana networks.
           </p>
@@ -223,7 +223,7 @@ const InteractiveDemo = () => {
           </TabsList>
 
           <TabsContent value="mint" className="space-y-6">
-            <Card className="max-w-2xl mx-auto gradient-border">
+            <Card className="max-w-2xl mx-auto card">
               <CardHeader>
                 <CardTitle className="flex items-center gap-2">
                   <Upload className="w-5 h-5" />
@@ -274,8 +274,7 @@ const InteractiveDemo = () => {
                 </div>
                 <Button 
                   onClick={handleMintNFT} 
-                  className="w-full" 
-                  variant="hero"
+                  className="w-full btn-primary" 
                   size="lg"
                 >
                   <Upload className="w-4 h-4 mr-2" />
@@ -286,7 +285,7 @@ const InteractiveDemo = () => {
           </TabsContent>
 
           <TabsContent value="transfer" className="space-y-6">
-            <Card className="max-w-2xl mx-auto gradient-border">
+            <Card className="max-w-2xl mx-auto card">
               <CardHeader>
                 <CardTitle className="flex items-center gap-2">
                   <Send className="w-5 h-5" />
@@ -353,7 +352,7 @@ const InteractiveDemo = () => {
                     </Select>
                   </div>
                 </div>
-                <div className="p-4 bg-muted/50 rounded-lg">
+                <div className="p-4 bg-muted/30 rounded-lg border border-border/50">
                   <h4 className="font-medium mb-2">Estimated Fees</h4>
                   <div className="text-sm space-y-1">
                     <div className="flex justify-between">
@@ -372,8 +371,7 @@ const InteractiveDemo = () => {
                 </div>
                 <Button 
                   onClick={handleTransferNFT} 
-                  className="w-full" 
-                  variant="hero"
+                  className="w-full btn-primary" 
                   size="lg"
                 >
                   <Send className="w-4 h-4 mr-2" />
@@ -384,7 +382,7 @@ const InteractiveDemo = () => {
           </TabsContent>
 
           <TabsContent value="history" className="space-y-6">
-            <Card className="gradient-border">
+            <Card className="card">
               <CardHeader>
                 <CardTitle className="flex items-center gap-2">
                   <Download className="w-5 h-5" />
@@ -435,7 +433,7 @@ const InteractiveDemo = () => {
                           <div className="font-medium flex items-center gap-1">
                             {transfer.transactionHash || 'Pending...'}
                             {transfer.transactionHash && (
-                              <Button variant="ghost" size="icon" className="h-4 w-4">
+                              <Button variant="ghost" size="icon" className="h-4 w-4 btn-ghost">
                                 <Copy className="w-3 h-3" />
                               </Button>
                             )}
@@ -452,20 +450,20 @@ const InteractiveDemo = () => {
 
         {/* Integration Info */}
         <div className="mt-16 text-center">
-          <div className="bg-card/50 backdrop-blur-sm rounded-2xl border border-border/50 p-8">
+          <div className="card p-8">
             <h3 className="text-2xl font-bold mb-4">Ready to Build?</h3>
             <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
               This demo showcases the core functionality. Integrate the actual Solana program 
               and ZetaChain gateway to enable real cross-chain NFT operations.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button variant="hero" size="lg" asChild>
+              <Button className="btn-primary" size="lg" asChild>
                 <a href="https://github.com/zeta-chain/protocol-contracts-solana" target="_blank" rel="noopener noreferrer">
                   <ExternalLink className="w-4 h-4 mr-2" />
                   View Solana Gateway
                 </a>
               </Button>
-              <Button variant="outline" size="lg" asChild>
+              <Button variant="outline" size="lg" className="btn-outline" asChild>
                 <a href="https://www.zetachain.com/docs/developers/chains/solana/" target="_blank" rel="noopener noreferrer">
                   <ExternalLink className="w-4 h-4 mr-2" />
                   Read Documentation

@@ -137,7 +137,7 @@ pub fn verify_nft_ownership(
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16">
-          <div className="inline-flex items-center px-4 py-2 rounded-full bg-card/50 backdrop-blur-sm border border-border/50 text-sm font-medium text-muted-foreground mb-4">
+          <div style={{background: 'white'}} className="inline-flex items-center px-4 py-2 rounded-full border border-gray-200 text-sm font-medium text-gray-600 mb-4">
             <Shield className="w-4 h-4 mr-2 text-primary" />
             Security & Compliance
           </div>
@@ -317,7 +317,7 @@ pub fn verify_nft_ownership(
 
         {/* CTA */}
         <div className="text-center mt-16">
-          <div className="bg-card/50 backdrop-blur-sm rounded-2xl border border-border/50 p-8">
+          <div style={{background: 'white'}} className="rounded-2xl border border-gray-200 p-8">
             <h3 className="text-2xl font-bold mb-4">Security First Development</h3>
             <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
               Our universal NFT program follows the highest security standards with comprehensive 

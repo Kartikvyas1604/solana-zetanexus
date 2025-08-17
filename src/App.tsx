@@ -13,7 +13,7 @@ const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
       <WalletContextProvider>
-        <div className="min-h-screen bg-white">
+        <div style={{ minHeight: '100vh', background: 'white', color: 'hsl(var(--foreground))' }}>
           <Toaster />
           <Sonner />
           <BrowserRouter>

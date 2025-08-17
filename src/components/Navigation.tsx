@@ -13,12 +13,15 @@ const Navigation = () => {
   ];
 
   return (
-    <nav className="bg-card/95 backdrop-blur-md border-b border-border sticky top-0 z-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <nav 
+      className="border-b border-border backdrop-blur-sm sticky top-0 z-50"
+      style={{ background: 'white' }}
+    >
+      <div className="container">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <div className="flex items-center space-x-2">
-            <div className="w-8 h-8 bg-gradient-to-br from-primary to-accent rounded-lg flex items-center justify-center">
+            <div className="w-8 h-8 bg-gradient-to-br from-primary to-accent rounded-lg flex items-center justify-center shadow-lg">
               <span className="text-white font-bold text-sm">Z</span>
             </div>
             <span className="text-xl font-bold gradient-text">ZetaChain Universal NFT</span>
@@ -30,18 +33,18 @@ const Navigation = () => {
               <a
                 key={item.name}
                 href={item.href}
-                className="text-muted-foreground hover:text-foreground transition-colors duration-200"
+                className="nav-link"
               >
                 {item.name}
               </a>
             ))}
-            <Button variant="outline" size="sm" asChild>
+            <Button variant="outline" size="sm" asChild className="btn-outline">
               <a href="https://github.com/zeta-chain" target="_blank" rel="noopener noreferrer">
                 <Github className="w-4 h-4" />
                 GitHub
               </a>
             </Button>
-            <Button variant="hero" size="sm">
+            <Button variant="default" size="sm" className="btn-primary">
               Get Started
             </Button>
           </div>
@@ -52,6 +55,7 @@ const Navigation = () => {
               variant="ghost"
               size="icon"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
+              className="btn-ghost"
             >
               {isMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
             </Button>
@@ -60,26 +64,29 @@ const Navigation = () => {
 
         {/* Mobile menu */}
         {isMenuOpen && (
-          <div className="md:hidden">
+          <div 
+            className="md:hidden border-t border-border"
+            style={{ background: 'white' }}
+          >
             <div className="px-2 pt-2 pb-3 space-y-1">
               {navItems.map((item) => (
                 <a
                   key={item.name}
                   href={item.href}
-                  className="block px-3 py-2 text-base font-medium text-muted-foreground hover:text-foreground transition-colors duration-200"
+                  className="block px-3 py-2 text-base font-medium nav-link"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   {item.name}
                 </a>
               ))}
               <div className="px-3 py-2 space-y-2">
-                <Button variant="outline" size="sm" className="w-full" asChild>
+                <Button variant="outline" size="sm" className="w-full btn-outline" asChild>
                   <a href="https://github.com/zeta-chain" target="_blank" rel="noopener noreferrer">
                     <Github className="w-4 h-4" />
                     GitHub
                   </a>
                 </Button>
-                <Button variant="hero" size="sm" className="w-full">
+                <Button variant="default" size="sm" className="w-full btn-primary">
                   Get Started
                 </Button>
               </div>

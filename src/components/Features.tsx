@@ -38,7 +38,7 @@ const Features = () => {
         "Replay protection",
         "Formal verification"
       ],
-      color: "from-secondary to-secondary-glow",
+      color: "from-primary to-accent",
       badge: "Security"
     },
     {
@@ -51,7 +51,7 @@ const Features = () => {
         "Token account management",
         "Signer validation"
       ],
-      color: "from-accent to-primary",
+      color: "from-primary to-accent",
       badge: "Performance"
     },
     {
@@ -64,7 +64,7 @@ const Features = () => {
         "Interactive examples",
         "Complete documentation"
       ],
-      color: "from-secondary to-accent",
+      color: "from-primary to-accent",
       badge: "DX"
     },
     {
@@ -90,7 +90,7 @@ const Features = () => {
         "Batch operations",
         "Fee token flexibility"
       ],
-      color: "from-accent to-secondary",
+      color: "from-primary to-accent",
       badge: "Economics"
     }
   ];
@@ -100,7 +100,7 @@ const Features = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16">
-          <div className="inline-flex items-center px-4 py-2 rounded-full bg-card/50 backdrop-blur-sm border border-border/50 text-sm font-medium text-muted-foreground mb-4">
+          <div style={{background: 'white'}} className="inline-flex items-center px-4 py-2 rounded-full border border-gray-200 text-sm font-medium text-gray-600 mb-4">
             <ArrowLeftRight className="w-4 h-4 mr-2 text-primary" />
             Powerful Features
           </div>
@@ -156,7 +156,7 @@ const Features = () => {
         </div>
 
         {/* Integration Preview */}
-        <div className="bg-card/50 backdrop-blur-sm rounded-2xl border border-border/50 p-8 text-center">
+        <div style={{background: 'white'}} className="rounded-2xl border border-gray-200 p-8 text-center">
           <h3 className="text-2xl font-bold mb-4">Production Ready Implementation</h3>
           <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
             This universal NFT program meets all technical requirements for the ZetaChain ecosystem. 

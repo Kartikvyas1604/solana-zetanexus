@@ -197,26 +197,26 @@ const NFTStudio = () => {
   const getStatusIcon = (status: string) => {
     switch (status) {
       case 'completed':
-        return <CheckCircle className="w-4 h-4 text-green-500" />;
+        return <CheckCircle className="w-4 h-4 text-success" />;
       case 'pending':
-        return <Clock className="w-4 h-4 text-yellow-500 animate-pulse" />;
+        return <Clock className="w-4 h-4 text-primary animate-pulse" />;
       case 'failed':
-        return <XCircle className="w-4 h-4 text-red-500" />;
+        return <XCircle className="w-4 h-4 text-destructive" />;
       default:
-        return <CheckCircle className="w-4 h-4 text-gray-500" />;
+        return <CheckCircle className="w-4 h-4 text-muted-foreground" />;
     }
   };
 
   const getStatusColor = (status: string) => {
     switch (status) {
       case 'completed':
-        return 'bg-green-500';
+        return 'bg-success';
       case 'pending':
-        return 'bg-yellow-500 animate-pulse';
+        return 'bg-primary animate-pulse';
       case 'failed':
-        return 'bg-red-500';
+        return 'bg-destructive';
       default:
-        return 'bg-gray-500';
+        return 'bg-muted-foreground';
     }
   };
 
@@ -240,28 +240,28 @@ const NFTStudio = () => {
   };
 
   return (
-    <section id="nft-studio" data-testid="nft-studio" className="py-20 px-4 sm:px-6 lg:px-8 bg-muted/30">
-      <div className="max-w-7xl mx-auto">
+    <section id="nft-studio" data-testid="nft-studio" className="section-muted">
+      <div className="container">
         <div className="text-center mb-16">
-          <div className="inline-flex items-center px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium mb-6">
+          <div className="status-primary mb-6">
             <Palette className="w-4 h-4 mr-2" />
             Universal NFT Studio
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">
+          <h2 className="hero-responsive font-bold mb-6">
             Create & Transfer <span className="gradient-text">Cross-Chain NFTs</span>
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-responsive text-muted-foreground max-w-3xl mx-auto">
             Mint NFTs on Solana or EVM chains and transfer them seamlessly across networks using ZetaChain's gateway protocol.
           </p>
         </div>
 
         {/* Wallet Status Bar */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
-          <Card className="gradient-border">
+          <Card className="card">
             <CardContent className="pt-6">
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 bg-gradient-to-br from-primary to-accent rounded-full flex items-center justify-center">
+                  <div className="w-10 h-10 bg-gradient-to-br from-primary to-accent rounded-full flex items-center justify-center shadow-lg">
                     <Zap className="w-5 h-5 text-white" />
                   </div>
                   <div>
@@ -272,21 +272,21 @@ const NFTStudio = () => {
                   </div>
                 </div>
                 {connected ? (
-                  <Badge className="bg-green-500/10 text-green-500 border-green-500/20">
+                  <Badge className="status-success">
                     Connected
                   </Badge>
                 ) : (
-                  <WalletMultiButton className="!bg-primary hover:!bg-primary/90 !rounded-lg !text-sm" />
+                  <WalletMultiButton className="btn-primary !text-sm !px-4 !py-2" />
                 )}
               </div>
             </CardContent>
           </Card>
 
-          <Card className="gradient-border">
+          <Card className="card">
             <CardContent className="pt-6">
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 bg-gradient-to-br from-secondary to-accent rounded-full flex items-center justify-center">
+                  <div className="w-10 h-10 bg-gradient-to-br from-primary to-accent rounded-full flex items-center justify-center shadow-lg">
                     <Shield className="w-5 h-5 text-white" />
                   </div>
                   <div>
@@ -297,7 +297,7 @@ const NFTStudio = () => {
                   </div>
                 </div>
                 {evmAddress ? (
-                  <Badge className="bg-green-500/10 text-green-500 border-green-500/20">
+                  <Badge className="status-success">
                     Connected
                   </Badge>
                 ) : (
@@ -310,7 +310,7 @@ const NFTStudio = () => {
                         <Button 
                           variant="outline" 
                           onClick={() => window.open('https://metamask.io/', '_blank')}
-                          className="w-full"
+                          className="w-full btn-outline"
                         >
                           Install MetaMask
                         </Button>
@@ -320,7 +320,7 @@ const NFTStudio = () => {
                         variant="outline" 
                         onClick={connectEVMWallet} 
                         disabled={loading}
-                        className="w-full"
+                        className="w-full btn-secondary"
                       >
                         <Wallet className="w-4 h-4 mr-2" />
                         {loading ? 'Connecting...' : 'Connect EVM'}
@@ -345,7 +345,7 @@ const NFTStudio = () => {
           <TabsContent value="mint" className="space-y-8">
             <div className="grid lg:grid-cols-2 gap-8">
               {/* Mint Form */}
-              <Card className="gradient-border">
+              <Card className="card">
                 <CardHeader>
                   <CardTitle>Create New NFT</CardTitle>
                   <CardDescription>
@@ -414,12 +414,13 @@ const NFTStudio = () => {
                           size="sm"
                           onClick={() => removeAttribute(index)}
                           disabled={mintForm.attributes.length === 1}
+                          className="btn-ghost"
                         >
                           <Trash2 className="w-4 h-4" />
                         </Button>
                       </div>
                     ))}
-                    <Button variant="outline" onClick={addAttribute} className="w-full">
+                    <Button variant="outline" onClick={addAttribute} className="w-full btn-outline">
                       Add Attribute
                     </Button>
                   </div>
@@ -438,7 +439,7 @@ const NFTStudio = () => {
                     <Button
                       onClick={handleMintSolana}
                       disabled={loading || !connected}
-                      className="w-full"
+                      className="w-full btn-primary"
                       size="lg"
                     >
                       {loading ? (
@@ -458,7 +459,7 @@ const NFTStudio = () => {
                       onClick={handleMintEVM}
                       disabled={loading || !evmAddress}
                       variant="outline"
-                      className="w-full"
+                      className="w-full btn-secondary"
                       size="lg"
                     >
                       {loading ? (
@@ -478,7 +479,7 @@ const NFTStudio = () => {
               </Card>
 
               {/* Preview */}
-              <Card className="gradient-border">
+              <Card className="card">
                 <CardHeader>
                   <CardTitle>NFT Preview</CardTitle>
                   <CardDescription>
@@ -486,7 +487,7 @@ const NFTStudio = () => {
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <div className="aspect-square bg-muted rounded-lg mb-4 flex items-center justify-center overflow-hidden relative">
+                  <div className="aspect-square bg-muted/30 rounded-lg mb-4 flex items-center justify-center overflow-hidden relative border border-border">
                     {mintForm.image ? (
                       <img
                         src={mintForm.image}
@@ -513,7 +514,7 @@ const NFTStudio = () => {
                       </div>
                     )}
                     <div className="absolute top-2 right-2">
-                      <Badge className="bg-primary/90 text-primary-foreground">
+                      <Badge className="status-primary">
                         Universal NFT
                       </Badge>
                     </div>
@@ -531,7 +532,7 @@ const NFTStudio = () => {
                         {mintForm.attributes
                           .filter(attr => attr.trait_type && attr.value)
                           .map((attr, index) => (
-                            <div key={index} className="bg-muted/50 p-2 rounded text-xs">
+                            <div key={index} className="bg-muted/50 p-2 rounded text-xs border border-border/50">
                               <div className="text-muted-foreground">{attr.trait_type}</div>
                               <div className="font-medium">{attr.value}</div>
                             </div>
@@ -548,12 +549,12 @@ const NFTStudio = () => {
             <div className="flex justify-between items-center mb-6">
               <h3 className="text-lg font-semibold">Your NFT Collection</h3>
               <div className="flex gap-2">
-                <Button variant="outline" size="sm" onClick={refreshNFTs}>
+                <Button variant="outline" size="sm" onClick={refreshNFTs} className="btn-outline">
                   <RefreshCw className="w-4 h-4 mr-2" />
                   Refresh
                 </Button>
                 {nfts.length > 0 && (
-                  <Button variant="outline" size="sm" onClick={exportNFTData}>
+                  <Button variant="outline" size="sm" onClick={exportNFTData} className="btn-outline">
                     <Download className="w-4 h-4 mr-2" />
                     Export
                   </Button>
@@ -569,7 +570,7 @@ const NFTStudio = () => {
                   <p className="text-muted-foreground mb-4">
                     Create your first universal NFT to get started
                   </p>
-                  <Button onClick={() => setActiveTab('mint')}>
+                  <Button onClick={() => setActiveTab('mint')} className="btn-primary">
                     Start Minting
                   </Button>
                 </CardContent>
@@ -577,8 +578,8 @@ const NFTStudio = () => {
             ) : (
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {nfts.map((nft) => (
-                  <Card key={nft.id} className="overflow-hidden gradient-border hover:shadow-lg transition-all duration-300">
-                    <div className="aspect-square bg-muted flex items-center justify-center overflow-hidden relative">
+                  <Card key={nft.id} className="overflow-hidden card hover:shadow-lg transition-all duration-300">
+                    <div className="aspect-square bg-muted/30 flex items-center justify-center overflow-hidden relative border-b border-border">
                       <img
                         src={nft.image}
                         alt={nft.name}
@@ -607,7 +608,7 @@ const NFTStudio = () => {
                       <div className="flex gap-1">
                         <Dialog>
                           <DialogTrigger asChild>
-                            <Button variant="outline" size="sm" className="flex-1">
+                            <Button variant="outline" size="sm" className="flex-1 btn-outline">
                               <Eye className="w-3 h-3 mr-1" />
                               View
                             </Button>
@@ -694,7 +695,7 @@ const NFTStudio = () => {
                           <DialogTrigger asChild>
                             <Button 
                               size="sm" 
-                              className="flex-1"
+                              className="flex-1 btn-primary"
                               onClick={() => setSelectedNFT(nft)}
                               disabled={nft.transferStatus === 'pending'}
                             >
@@ -752,7 +753,7 @@ const NFTStudio = () => {
                               <Button 
                                 onClick={handleTransfer}
                                 disabled={loading || !transferForm.targetChain || !transferForm.recipientAddress}
-                                className="w-full"
+                                className="w-full btn-primary"
                               >
                                 {loading ? (
                                   <>
@@ -778,7 +779,7 @@ const NFTStudio = () => {
           </TabsContent>
 
           <TabsContent value="transfer">
-            <Card className="gradient-border">
+            <Card className="card">
               <CardHeader>
                 <CardTitle>Cross-Chain Transfer Status</CardTitle>
                 <CardDescription>
@@ -793,7 +794,7 @@ const NFTStudio = () => {
                     <p className="text-muted-foreground mb-4">
                       Start a cross-chain transfer from your collection
                     </p>
-                    <Button onClick={() => setActiveTab('collection')}>
+                    <Button onClick={() => setActiveTab('collection')} className="btn-primary">
                       View Collection
                     </Button>
                   </div>
