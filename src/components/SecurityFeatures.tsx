@@ -11,10 +11,23 @@ import {
   Code, 
   FileText,
   ExternalLink,
-  Copy
+  Copy,
+  Check
 } from 'lucide-react';
+import { useState } from 'react';
 
 const SecurityFeatures = () => {
+  const [copiedCode, setCopiedCode] = useState<string | null>(null);
+
+  const copyToClipboard = async (code: string, key: string) => {
+    try {
+      await navigator.clipboard.writeText(code);
+      setCopiedCode(key);
+      setTimeout(() => setCopiedCode(null), 2000);
+    } catch (err) {
+      console.error('Failed to copy code:', err);
+    }
+  };
   const securityFeatures = [
     {
       icon: Shield,
@@ -193,8 +206,17 @@ pub fn verify_nft_ownership(
                   <CardHeader>
                     <CardTitle className="flex items-center justify-between">
                       <span className="capitalize">{key} Security</span>
-                      <Button variant="ghost" size="icon">
-                        <Copy className="w-4 h-4" />
+                      <Button 
+                        variant="ghost" 
+                        size="icon"
+                        onClick={() => copyToClipboard(code, key)}
+                        className="relative"
+                      >
+                        {copiedCode === key ? (
+                          <Check className="w-4 h-4 text-green-600" />
+                        ) : (
+                          <Copy className="w-4 h-4" />
+                        )}
                       </Button>
                     </CardTitle>
                   </CardHeader>
@@ -237,7 +259,7 @@ pub fn verify_nft_ownership(
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               <Card className="gradient-border text-center">
                 <CardContent className="pt-6">
-                  <div className="w-16 h-16 bg-gradient-to-br from-secondary to-secondary-glow rounded-full flex items-center justify-center mx-auto mb-4">
+                  <div className="w-16 h-16 bg-gradient-to-br from-primary to-accent rounded-full flex items-center justify-center mx-auto mb-4">
                     <Shield className="w-8 h-8 text-white" />
                   </div>
                   <h3 className="font-semibold mb-2">SOC 2 Type II</h3>
@@ -259,7 +281,7 @@ pub fn verify_nft_ownership(
 
               <Card className="gradient-border text-center">
                 <CardContent className="pt-6">
-                  <div className="w-16 h-16 bg-gradient-to-br from-accent to-secondary rounded-full flex items-center justify-center mx-auto mb-4">
+                  <div className="w-16 h-16 bg-gradient-to-br from-primary to-accent rounded-full flex items-center justify-center mx-auto mb-4">
                     <Lock className="w-8 h-8 text-white" />
                   </div>
                   <h3 className="font-semibold mb-2">Bug Bounty</h3>

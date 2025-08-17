@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Badge } from '@/components/ui/badge';
@@ -13,10 +13,22 @@ import {
   ExternalLink,
   Copy,
   CheckCircle,
-  Terminal
+  Terminal,
+  Check
 } from 'lucide-react';
 
 const Documentation = () => {
+  const [copiedCode, setCopiedCode] = useState<string | null>(null);
+
+  const copyToClipboard = async (code: string, key: string) => {
+    try {
+      await navigator.clipboard.writeText(code);
+      setCopiedCode(key);
+      setTimeout(() => setCopiedCode(null), 2000);
+    } catch (err) {
+      console.error('Failed to copy code:', err);
+    }
+  };
   const setupSteps = [
     {
       step: 1,
@@ -411,8 +423,16 @@ pub fn validate_tss_signature(
                         <Terminal className="w-4 h-4" />
                         <span>Terminal / Code</span>
                       </div>
-                      <Button variant="ghost" size="sm">
-                        <Copy className="w-4 h-4" />
+                      <Button 
+                        variant="ghost" 
+                        size="sm"
+                        onClick={() => copyToClipboard(step.code, `setup-${step.step}`)}
+                      >
+                        {copiedCode === `setup-${step.step}` ? (
+                          <Check className="w-4 h-4 text-green-600" />
+                        ) : (
+                          <Copy className="w-4 h-4" />
+                        )}
                       </Button>
                     </div>
                     <pre className="text-sm overflow-x-auto">
@@ -431,9 +451,22 @@ pub fn validate_tss_signature(
                   <CardHeader>
                     <CardTitle className="flex items-center justify-between">
                       <span className="capitalize">{key} Implementation</span>
-                      <Button variant="ghost" size="sm">
-                        <Copy className="w-4 h-4 mr-2" />
-                        Copy Code
+                      <Button 
+                        variant="ghost" 
+                        size="sm"
+                        onClick={() => copyToClipboard(code, `example-${key}`)}
+                      >
+                        {copiedCode === `example-${key}` ? (
+                          <>
+                            <Check className="w-4 h-4 mr-2 text-green-600" />
+                            Copied!
+                          </>
+                        ) : (
+                          <>
+                            <Copy className="w-4 h-4 mr-2" />
+                            Copy Code
+                          </>
+                        )}
                       </Button>
                     </CardTitle>
                     <CardDescription>
